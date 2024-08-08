@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletter</title>
+  <style>
+    /* Styles for the newsletter */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: auto;
+      margin: 2rem 4rem auto 4rem;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      /* border-style: dashed; */
+      /* border-width: 0.25rem; */
+      /* border-color: #007bff red purple green; */
+    }
+    .content-body {
+      margin: 2rem 4rem auto 4rem;
+      color: #333333;
+    }
+    h1 {
+      color: #333333;
+      text-align: center;
+    }
+    h2 {
+      color: black !important;
+    }
+    h3 {
+      color: black !important;
+    }
+    p {
+      color: #666666;
+      line-height: 1.5;
+    }
+    .button {
+      display: inline-block;
+      background-color: #007bff;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .branding {
+      text-align: center;
+      color: #333333;
+      margin: 0 auto;
+    }
+    @media (max-width: 480px) {
+      /* Styles for mobile devices */
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to GatherSG Newsletter!</h1>
+    <div class="branding">Powered by <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg">Gemini</div>
+    <div class="content-body">${CONTENT}</div>
+  </div>
+</body>
+</html>

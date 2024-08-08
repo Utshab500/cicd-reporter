@@ -1,0 +1,16 @@
+# Python bytecode files
+*.pyc
+__pycache__/
+
+# Virtual environment files
+venv/
+env/
+.venv/
+
+# Local configuration files
+local_settings.py
+.env
+
+# Test output
+test_results/
+coverage/
