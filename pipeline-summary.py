@@ -5,71 +5,8 @@ import re
 import json
 import copy
 
-def makeBoldHero(heroList):
-    for i in range(0, len(heroList)):
-        heroList[i] = re.sub(r"\*\*(?=\w)", "<b>", heroList[i])
-        heroList[i] = re.sub(r"\*\*(?!\w)", "</b>", heroList[i])
-    return heroList
-
-def findLineHero(msg):
-    regexPattern = r"\*\*.+\*\*(?=\s*\w)"
-    matches = re.findall(regexPattern, msg)
-    return matches
-
-def replaceInMessage(msg, originalList, replaceableList):
-    for i in range(0, len(originalList)):
-        regexPattern = re.escape(originalList[i])
-        msg = re.sub(regexPattern, replaceableList[i], msg)
-    return(msg)
-
-def addLineBreaks(msg):
-    regexPattern = r"\*\*.+\*\*((\s+\d+-\d+-\d+)|(\s+[\(\`\']{0,1}((\d+-\d+-\d+)|\w+\'\w+|\w+)[\)\`\']{0,1}[.,!?]*)+)"
-    matches = re.finditer(regexPattern, msg)
-    match = [x.group() for x in matches]
-    matchWithLineBreak = [x+"<br />" for x in match]
-    msg = replaceInMessage(msg, match, matchWithLineBreak)
-    return msg
-
-def json_to_markdown_table(json_data):
-  """Converts JSON data (list of dictionaries) to a markdown table.
-
-  Args:
-      json_data: A Python list containing dictionaries with consistent keys.
-
-  Returns:
-      A string containing the markdown representation of the JSON data as a table.
-
-  Raises:
-      ValueError: If the input data is not a list of dictionaries.
-      KeyError: If a key from the first dictionary is missing in subsequent dictionaries.
-  """
-
-  if not isinstance(json_data, list):
-    raise ValueError("Input data must be a list of dictionaries.")
-
-  # Check if all dictionaries have the same keys
-  if len(json_data) > 0:
-    first_keys = set(json_data[0].keys())
-    for item in json_data[1:]:
-      if set(item.keys()) != first_keys:
-        raise KeyError("Dictionaries in the list must have the same keys.")
-
-  # Extract headers from the first dictionary
-  headers = [key for key in json_data[0].keys()]
-
-  # Create table rows with consistent formatting
-  table_rows = []
-  for item in json_data:
-    table_row = [str(item[key]) for key in headers]
-    table_rows.append(table_row)
-
-  # Combine headers and rows into a markdown table
-  markdown_table = "| " + " | ".join(headers) + " |\n"
-  markdown_table += "|-" * len(headers) + "|\n"
-  for row in table_rows:
-    markdown_table += "| " + " | ".join(row) + " |\n"
-
-  return markdown_table
+from src.utils.StringOperations import StringOperations
+from src.utils.Converter import Converter
 
 
 def generateReport(data):
@@ -145,14 +82,15 @@ def generateReport(data):
   with open('my_file.txt', 'w') as file:
       file.write(response)
 
-  response = addLineBreaks(response)
-  lineHero = findLineHero(response)
+  stringOperations = StringOperations()
+  response = stringOperations.addLineBreaks(response)
+  lineHero = stringOperations.findLineHero(response)
   # print(lineHero)
   lineHeropDup = copy.deepcopy(lineHero)
   # print(lineHeropDup)
-  boldLineHeros = makeBoldHero(lineHeropDup)
+  boldLineHeros = stringOperations.makeBoldHero(lineHeropDup)
   # print(boldLineHeros)
-  response = replaceInMessage(response, lineHero, boldLineHeros)
+  response = stringOperations.replaceInMessage(response, lineHero, boldLineHeros)
 
   regexPattern = r"\#\#+.+"
   match = re.search(regexPattern, response)
@@ -180,7 +118,7 @@ if __name__ == "__main__":
   args = parser.parse_args()
   # print(args.action)
   if args.action == "markdown":
-    markdown = json_to_markdown_table(json.loads(args.response))
+    markdown = Converter().json_to_markdown_table(json.loads(args.response))
     print(markdown)
   if args.action == "summary":
     response = generateReport(args.response)

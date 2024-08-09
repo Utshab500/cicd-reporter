@@ -1,9 +1,10 @@
 #! /bin/bash
 
-RESP=$(curl --header "PRIVATE-TOKEN: ${PRIVATE_TOKEN}" "https://sgts.gitlab-dedicated.com/api/v4/projects/8568/pipelines")
+# RESP=$(curl --header "PRIVATE-TOKEN: ${PRIVATE_TOKEN}" "https://sgts.gitlab-dedicated.com/api/v4/projects/8568/pipelines")
+RESP=$(cat ./dummy-data/d1.json)
 # echo "test"
 # echo $RESP
-python pipeline-summary.py --action="markdown" $RESP > test.md
+python pipeline-summary.py --action="markdown" "$RESP" > test.md
 sed -i'.back' 's/web_url/IGNORE_WEB_URL/g' test.md
 sed -i'.back' 's/sha/IGNORE_SHA/g' test.md
 sed -i'.back' 's/ref/COMMIT_BRANCH_NAME/g' test.md
