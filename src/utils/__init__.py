@@ -6,4 +6,5 @@ def get_module_names(directory):
   return [os.path.splitext(f)[0] for f in glob.glob(os.path.join(directory, "*.py"))
           if not f.startswith("__")]
 
+# Export of modules
 __all__ = get_module_names(".")

@@ -67,21 +67,33 @@
   <div class="container">
     <h1>Welcome to GatherSG Newsletter!</h1>
     <div class="branding">Powered by <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg">Gemini</div>
-    <div class="content-body"><h2> Development Pipeline Update</h2>
+    <div class="content-body"><h2> Development Pipeline Status Update</h2>
 
-This newsletter provides a summary of recent development pipeline activity for Delivery Managers and Tech Leads. 
+<h3>To</h3>: Delivery Managers and Tech Leads
 
-<b>Overall Status:</b> All recent pipelines have executed successfully.<br /> 
+This newsletter provides a concise overview of the recent development pipeline activity. 
 
-<h3>Deployment Details:</h3>
+<h3>Overall Status:</h3>
 
- <b>Development Branch:</b> We've seen consistent success with scheduled and push<br />-triggered pipelines on the `development` branch, indicating a healthy integration and testing process. 
- <b>SIT Environment:</b> Successful deployments to the `sit` environment were triggered by pushes to the respective branch, showcasing smooth progression of tested features.<br />
- <b>Staging Environment:</b> The `staging` environment was successfully updated with changes, primarily triggered through webhooks, reflecting preparation for potential releases.<br />
- <b>Master Branch:</b>  Successful pipelines on the `master` branch, triggered by webhooks, indicate production deployments or updates were executed without issues.
+ We have observed a mix of successful, skipped, and scheduled pipelines across different branches.
 
+<h3>Branch Analysis:</h3>
 
-This information helps track the progress of development work through the pipeline and towards deployment.<br /> </div>
+ <b>MPAS:</b> The majority of pipelines on this branch have been successful, indicating smooth development progress. However, there was one instance of a skipped pipeline, suggesting a potential configuration issue that warrants further investigation.<br />
+ <b>Development:</b> Pipelines triggered on the development branch were all successful, demonstrating stability and successful integration of new features or bug fixes.<br />
+ <b>CL+:</b> All pipelines on the CL<br />+ branch have been successful, signifying a robust continuous integration and delivery process for this specific workflow. 
+
+<h3>Trigger Types:</h3>
+
+ <b>Schedule:</b> Most pipelines were triggered on a schedule, indicating regular automated testing and deployment cycles.<br />
+ <b>Web:</b> Some pipelines were manually triggered via webhooks, suggesting potential hotfixes or ad<br />-hoc deployments.
+
+<h3>Next Steps:</h3>
+
+ We will continue to monitor the pipeline status and investigate any anomalies. 
+ Any issues identified will be addressed promptly to ensure a stable and efficient development process.
+
+<b>Please note:</b> This update excludes specific identifying information about individual pipelines or projects. For detailed information, please refer to the project's pipeline dashboard on GitLab.<br /> </div>
   </div>
 </body>
 </html>
