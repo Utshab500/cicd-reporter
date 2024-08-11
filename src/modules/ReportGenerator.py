@@ -1,9 +1,5 @@
 import google.generativeai as genai
 import os
-import re
-import copy
-
-from src.utils.StringOperations import StringOperations
 
 class ReportGenerator:
     def __init__(self):
@@ -75,37 +71,6 @@ class ReportGenerator:
             ```markdown {data}```
 
             """
-
-
+        
         response = model.generate_content(prompt).text
-        # print(response)
-        with open('my_file.txt', 'w') as file:
-            file.write(response)
-
-        stringOperations = StringOperations()
-        response = stringOperations.addLineBreaks(response)
-        lineHero = stringOperations.findLineHero(response)
-        # print(lineHero)
-        lineHeropDup = copy.deepcopy(lineHero)
-        # print(lineHeropDup)
-        boldLineHeros = stringOperations.makeBoldHero(lineHeropDup)
-        # print(boldLineHeros)
-        response = stringOperations.replaceInMessage(response, lineHero, boldLineHeros)
-
-        regexPattern = r"\#\#+.+"
-        match = re.search(regexPattern, response)
-
-        if match:
-            captured_text = match.group()
-            # print(captured_text)
-        else:
-            print("Text not found")
-
-        captured_text = re.sub(r"\#\#", "<h2>", captured_text)
-        response = re.sub(regexPattern, captured_text+"</h2>", response)
-
-        response = re.sub(r"\*\*(?=\w)", "<h3>", response) # Positive look ahead
-        response = re.sub(r"\*\*(?!\w)", "</h3>", response) # Negative look ahead
-        response = re.sub(r"\*", "", response)
-
         return response

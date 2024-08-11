@@ -1,11 +1,14 @@
+"""
+General Interface for using CICD-Reporter
+"""
 import argparse
 import json
 import warnings
 warnings.filterwarnings("ignore")
 
-
 from src.utils.Converter import Converter
 from src.modules.ReportGenerator import ReportGenerator
+from src.modules.ReportFormatter import ReportFormatter
 
 # --action = [ markdown, summary ]
 if __name__ == "__main__":
@@ -19,4 +22,5 @@ if __name__ == "__main__":
     print(markdown)
   if args.action == "summary":
     response = ReportGenerator().generateReport(args.response)
+    response = ReportFormatter().geminiReportTohtml(response)
     print(response)
