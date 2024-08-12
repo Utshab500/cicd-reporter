@@ -22,7 +22,9 @@ class StringOperations:
         return(msg)
 
     def addLineBreaks(self, msg):
-        regexPattern = r"(\* \*{2}|\*{2})(\w+[ \t\f\/\+\(/)\:\*\`\',\.\-\"]*)*"
+        # regexPattern = r"(\* \*{2}|\*{2})(\w+[ \t\f\/\+\(/)\:\*\`\',\.\-\"]*)*"
+        regexPattern = r"^(((\* \*{2}|\*{2})(([\(\']\w+|\w+|\w+[\),\'\.\+]|[\(\']\w+[\)\'])[ \t\f/\:])*\*{2}[ \t\f]{1,2})|(\*[ \t\f]))(([\(\']\w+|\w+|\w+[\),\'\.\+],?|[\(\'\`\*][\"\*]?\w+[\"\*]?[\)\'\`\*]\.?|\w+[\'\-\/]\w+|\'?\d+-\d+-\d+\'?)[ \t\f\n])+"
+        regexPattern = re.compile(regexPattern, re.MULTILINE)
         matches = re.finditer(regexPattern, msg)
         match = [x.group() for x in matches]
         matchWithLineBreak = [x+"<br />" for x in match]
