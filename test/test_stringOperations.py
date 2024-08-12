@@ -31,15 +31,15 @@ def test_addLineBreak():
 
         **Overall Pipeline Status**: All recent pipelines have been successful.<br />
 
-        **Deployment Status by Branch**:
+        **Deployment Status by Branch**:<br />
 
-        * **Development**: We've seen consistent success in our development branch pipelines, indicating a stable development process. Recent deployments have been triggered by both schedule and push events.<br /> 
+        * **Development**: We've seen consistent success in our development branch pipelines, indicating a stable development process. Recent deployments have been triggered by both schedule and push events. <br />
         * **SIT**:  The SIT environment has also seen successful deployments, triggered by push events.<br />
         * **Staging**: Staging deployments have been successfully completed, triggered by web events.<br />
-        * **Master**:  Successful deployments have been made to the master branch, indicating readiness for production releases. These were triggered by web events.<br /> 
+        * **Master**:  Successful deployments have been made to the master branch, indicating readiness for production releases. These were triggered by web events. <br />
 
-        **Note**: This summary excludes specific identifying data like IDs and project details.
+        **Note**: This summary excludes specific identifying data like IDs and project details.<br />
 
-        Please contact the development team if you require further details.<br />"""
+        Please contact the development team if you require further details."""
     # print(StringOperations().addLineBreaks(testData))
     assert StringOperations().addLineBreaks(testData) == outputData
