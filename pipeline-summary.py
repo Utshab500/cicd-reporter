@@ -20,7 +20,9 @@ if __name__ == "__main__":
   if args.action == "markdown":
     markdown = Converter().json_to_markdown_table(json.loads(args.response))
     print(markdown)
-  if args.action == "summary":
+  elif args.action == "title":
+    print(json.loads(args.response)[0]['web_url'].split('/')[7])
+  elif args.action == "summary":
     response = ReportGenerator().generateReport(args.response)
     response = ReportFormatter().geminiReportTohtml(response)
     print(response)

@@ -27,6 +27,9 @@
       margin: 2rem 4rem auto 4rem;
       color: #333333;
     }
+    .text-center{
+      text-align: center;
+    }
     h1 {
       color: #333333;
       text-align: center;
@@ -67,7 +70,31 @@
   <div class="container">
     <h1>Welcome to GatherSG Newsletter!</h1>
     <div class="branding">Powered by <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg">Gemini</div>
-    <div class="content-body"></div>
+    <h3 class="text-center">Track: gsg-qe-playwright</h3>
+    <div class="content-body"><h2> Development Pipeline Status Update</h2>
+
+<b>Date:</b> 2024-08-12
+<br />
+This newsletter provides a summary of the development process based on recent pipeline statuses. 
+
+<h3>Successful Pipelines:</h3>
+
+ Two pipelines on the 'fms' branch were successfully executed as scheduled.
+<br /> The 'nsh' branch also saw a successful pipeline execution based on a schedule trigger.
+<br /> A pipeline on the 'ccrm' branch was successfully executed following a web trigger.
+<br /> The 'ccrm' branch had an additional successful pipeline execution as scheduled.
+<br />
+<h3>Manual Pipelines:</h3>
+
+ Several pipelines across <br />'fms', 'ccrm-emails', 'ccrm', 'ccrm-close-case', 'development' branches are awaiting manual action. This suggests potential ongoing reviews or deployments requiring manual approval.
+
+<h3>Skipped Pipeline:</h3>
+
+ One pipeline on the 'fms' branch was skipped. This may require investigation to understand the cause of the skip.
+<br />
+<b>Further Information:</b>
+
+Delivery Managers and Tech Leads are encouraged to review the details of specific pipelines for more context and to address any potential roadblocks, particularly for pipelines awaiting manual intervention.</div>
   </div>
 </body>
 </html>
