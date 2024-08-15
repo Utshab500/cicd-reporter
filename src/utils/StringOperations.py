@@ -11,7 +11,8 @@ class StringOperations:
         return heroList
 
     def findLineHero(self, msg):
-        regexPattern = r"\*\*.+\*\*(?=\s*\w)"
+        # regexPattern = r"\*\*.+\*\*(?=\s*\w)"
+        regexPattern = r"\*\*.+\*\*(?=[ \t\f]*\w)"
         matches = re.findall(regexPattern, msg)
         return matches
 
@@ -21,12 +22,12 @@ class StringOperations:
             msg = re.sub(regexPattern, replaceableList[i], msg)
         return(msg)
 
-    def addLineBreaks(self, msg):
-        # regexPattern = r"(\* \*{2}|\*{2})(\w+[ \t\f\/\+\(/)\:\*\`\',\.\-\"]*)*"
-        regexPattern = r"^(((\* \*{2}|\*{2})(([\(\']\w+|\w+|\w+[\),\'\.\+]|[\(\']\w+[\)\'])[ \t\f\/\:\-])*\*{2}[ \t\f]{1,2})|(\*[ \t\f]))(([\(\']\w+|(\w+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z)|(\w+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z)[\),\'\.\+][,\.]?|[\(\'\`\*][\"\*]?\w+[\"\*]?[\)\'\`\*]\.?|[\'\`]?\w+[\'\-\/]\w+[\'\`]?|\'?\d+-\d+-\d+\'?)[ \t\f\n])+"
-        regexPattern = re.compile(regexPattern, re.MULTILINE)
-        matches = re.finditer(regexPattern, msg)
-        match = [x.group() for x in matches]
-        matchWithLineBreak = [x+"<br />" for x in match]
-        msg = self.replaceInMessage(msg, match, matchWithLineBreak)
-        return msg
+    # def addLineBreaks(self, msg):
+    #     # regexPattern = r"(\* \*{2}|\*{2})(\w+[ \t\f\/\+\(/)\:\*\`\',\.\-\"]*)*"
+    #     regexPattern = r"^(((\* \*{2}|\*{2})(([\(\']\w+|\w+|\w+[\),\'\.\+]|[\(\']\w+[\)\'])[ \t\f\/\:\-])*\*{2}[ \t\f]{1,2})|(\*[ \t\f]))(([\(\']\w+|(\w+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z)|(\w+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z)[\),\'\.\+][,\.]?|[\(\'\`\*\"][\*]?\w+[\*]?[\)\'\`\*\"]\.?|[\'\`]?\w+[\'\-\/]\w+[\'\`]?|\'?\d+-\d+-\d+\'?)[ \t\f\n])+"
+    #     regexPattern = re.compile(regexPattern, re.MULTILINE)
+    #     matches = re.finditer(regexPattern, msg)
+    #     match = [x.group() for x in matches]
+    #     matchWithLineBreak = [x+"<br />" for x in match]
+    #     msg = self.replaceInMessage(msg, match, matchWithLineBreak)
+    #     return msg

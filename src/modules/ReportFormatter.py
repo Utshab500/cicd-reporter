@@ -29,7 +29,9 @@ class ReportFormatter:
             **Date:** 2024-08-05
         """
         data = re.sub(r"  ", " ", data)
+        data = re.sub(r"(?<=\w):(?=[\n])", "", data)
         data = re.sub(r"\*\*\:", ":**", data)
+        data = re.sub(r"(?<![\*\*]|\n)\n", "<br />", data)
         return data
 
     def geminiReportTohtml(self, data):
@@ -42,7 +44,7 @@ class ReportFormatter:
             file.write(data)
         # print(data)
         stringOperations = StringOperations()
-        data = stringOperations.addLineBreaks(data)
+        # data = stringOperations.addLineBreaks(data)
         lineHero = stringOperations.findLineHero(data)
         # print(lineHero)
         lineHeropDup = copy.deepcopy(lineHero)

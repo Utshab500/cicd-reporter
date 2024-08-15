@@ -1,7 +1,7 @@
 #! /bin/bash
 
-# RESP=$(curl --header "PRIVATE-TOKEN: ${PRIVATE_TOKEN}" "https://sgts.gitlab-dedicated.com/api/v4/projects/34770/pipelines")
-RESP=$(cat ./dummy-data/d1.json)
+RESP=$(curl --header "PRIVATE-TOKEN: ${PRIVATE_TOKEN}" "https://sgts.gitlab-dedicated.com/api/v4/projects/34770/pipelines")
+# RESP=$(cat ./dummy-data/d2.json)
 export TRACK=$(python pipeline-summary.py --action=title --response="$RESP")
 # echo "test"
 # echo $RESP

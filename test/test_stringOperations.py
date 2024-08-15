@@ -1,4 +1,32 @@
+# import pytest
 from src.utils.StringOperations import StringOperations
+
+stringOperations = StringOperations()
+
+# @pytest.mark.parametrize(
+#     ("param1", "param2"),
+#     [
+#         ("a", "b"),
+#         ("c", "d"),
+#     ],
+# )
+# class TestGroup:
+#     """A class with common parameters, `param1` and `param2`."""
+
+#     @pytest.fixture
+#     def fixt(self) -> int:
+#         """This fixture will only be available within the scope of TestGroup"""
+#         return 123
+
+#     def test_one(self, param1: str, param2: str, fixt: int) -> None:
+#         print("\ntest_one", param1, param2, fixt)
+
+#     def test_two(self, param1: str, param2: str) -> None:
+#         print("\ntest_two", param1, param2)
+    
+def test_makeBoldHero():
+        testData = "**Summary:**"
+        outputData = "**Summary:**"
 
 def test_addLineBreak():
     testData = """## Development Pipeline Status Report 
@@ -47,5 +75,5 @@ This report summarizes the outcome of recent development pipelines across differ
 <br />* Review the performance of pipelines to identify potential bottlenecks and optimize for faster feedback loops.
 <br />
 This report provides a high-level overview of recent pipeline activity.  For more detailed information on specific pipeline executions, please refer to the pipeline logs in our CI/CD system."""
-    print(StringOperations().addLineBreaks(testData))
-    assert StringOperations().addLineBreaks(testData) == outputData
+    # print(stringOperations.addLineBreaks(testData))
+    assert stringOperations.addLineBreaks(testData) == outputData
