@@ -27,6 +27,9 @@
       margin: 2rem 4rem auto 4rem;
       color: #333333;
     }
+    .text-center{
+      text-align: center;
+    }
     h1 {
       color: #333333;
       text-align: center;
@@ -67,20 +70,14 @@
   <div class="container">
     <h1>Welcome to GatherSG Newsletter!</h1>
     <div class="branding">Powered by <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg">Gemini</div>
-    <div class="content-body"><h2> Development Pipeline Update</h2>
+    <h3 class="text-center">Track: gsg-qe-playwright</h3>
+    <div class="content-body"><h2> Development Pipeline Status Update<br /></h2>
+<b>Date:</b> 2024-08-14<br />
+This newsletter provides an overview of the development pipeline progress based on recent pipeline statuses.<br />
+<h3>Summary:</h3>
 
-This newsletter provides a summary of recent pipeline activity for Delivery Managers and Tech Leads. 
-
-<b>Overall Pipeline Status:</b> All recent pipelines have successfully completed.<br /> 
-
-<h3>Breakdown by Branch:</h3>
-
- <b>Development:</b>  We've seen frequent deployments to the development branch, triggered by both scheduled pipelines and code pushes. This indicates active development and testing is underway.<br />
- <b>SIT:</b>  Several successful pipelines have been executed against the SIT environment, suggesting thorough testing is being conducted before merging code to higher environments.<br />
- <b>Staging:</b>  Staging has received successful deployments, likely for final integration and regression testing before release.<br />
- <b>Master:</b>  The master branch has had successful deployments, demonstrating a healthy path for code promotion to production.<br /> 
-
-<b>Note:</b>  This summary excludes specific pipeline IDs and project details, focusing on the overall development progress based on pipeline status and deployment triggers across different branches.<br /></div>
+ <b>Active Development:</b> Several features are under active development, including 'ccrm-tasks-page', 'ccrm-timeline', and 'ccrm-emails'. These branches show multiple commits and pipeline triggers related to code pushes.<br /> <b>Merge Requests:</b> We've seen merge requests being created and tested for 'ccrm' and 'ccrm-emails' features, indicating progress towards integration.<br /> <b>Successful Scheduled Jobs:</b> Automated scheduled jobs for 'fms' and 'nsh' completed successfully, suggesting healthy system operations.<br /> <b>Manual Pipeline Triggers:</b> The majority of pipelines were triggered manually, providing developers control over testing and deployment.<br />
+<b>Note:</b> This report excludes specific details like 'id', 'iid', and 'project_id' to maintain conciseness. For detailed information, please refer to the pipeline dashboard.<br /></div>
   </div>
 </body>
 </html>
